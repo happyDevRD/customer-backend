@@ -21,4 +21,23 @@ public class ClientServiceImplement implements IClientService {
 		return (List<Client>) clienteDao.findAll();
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public Client findById(Long id) {
+		return clienteDao.findById(id).orElse(null);
+	}
+
+	@Override
+	@Transactional
+	public Client save(Client client) {
+		return clienteDao.save(client);
+	}
+
+	@Override
+	@Transactional
+	public void delete(Long id) {		
+	}
+
+
+
 }
