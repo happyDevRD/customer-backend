@@ -1,14 +1,17 @@
 package com.happydev.client.api.rest.models.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
 
 @Entity
 @Table(name = "clients")
@@ -26,8 +29,9 @@ public class Client implements Serializable {
 	@Column(name = "apellido")
 	private String lastName;
 
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
 	@Column(name = "direccion")
-	private String addres;
+    private List<Address> address = new ArrayList<>();
 
 	@Column(name = "correo")
 	private String mail;
@@ -56,12 +60,12 @@ public class Client implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public String getAddres() {
-		return addres;
+	public List<Address> getAddress() {
+		return address;
 	}
 
-	public void setAddres(String addres) {
-		this.addres = addres;
+	public void setAddress(List<Address> address) {
+		this.address = address;
 	}
 
 	public String getMail() {

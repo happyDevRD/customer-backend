@@ -48,7 +48,7 @@ public class ClientRestController {
 		Client currentClient = clientService.findById(id);
 		
 		currentClient.setLastName(client.getLastName());
-		currentClient.setAddres(client.getAddres());
+		currentClient.setAddress(client.getAddress());
 		currentClient.setFirstName(client.getFirstName());
 		currentClient.setMail(client.getMail());	
 		
