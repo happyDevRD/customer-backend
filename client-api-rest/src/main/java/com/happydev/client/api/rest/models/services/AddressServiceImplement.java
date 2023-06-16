@@ -37,7 +37,7 @@ public class AddressServiceImplement implements IAddressService {
 	@Override
 	public Address findById(Long id) {
 		return repositoryAddress.findById(id)
-				.orElseThrow(() -> new NoSuchElementException("El Cliente no existe"));
+				.orElseThrow(() -> new NoSuchElementException("la direccion no existe"));
 	}
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.happydev.client.api.rest.models.entity.Address;
 import com.happydev.client.api.rest.models.entity.Client;
+import com.happydev.client.api.rest.models.services.AddressServiceImplement;
 import com.happydev.client.api.rest.models.services.ClientServiceImplement;
 
 import jakarta.annotation.PostConstruct;
@@ -15,8 +16,11 @@ import jakarta.annotation.PostConstruct;
 public class DataInitializer {
 	
 	private final ClientServiceImplement clientService;
-	public DataInitializer(ClientServiceImplement clientService) {
+	private final AddressServiceImplement addressService;
+	
+	public DataInitializer(ClientServiceImplement clientService, AddressServiceImplement addressService) {
 	        this.clientService = clientService;
+	        this.addressService = addressService;
 	    }
 
 	 @PostConstruct
