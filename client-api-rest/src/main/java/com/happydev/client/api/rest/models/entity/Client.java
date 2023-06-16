@@ -75,7 +75,4 @@ public class Client implements Serializable {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-
-
-
 }

@@ -13,12 +13,9 @@ import com.happydev.client.api.rest.models.entity.Client;
 @Service
 public class ClientServiceImplement implements IClientService {
 
-	private final IClienteDao clienteDao;
+	@Autowired
+	private IClienteDao clienteDao;
 	
-	public ClientServiceImplement(IClienteDao clienteDao) {
-		this.clienteDao = clienteDao;
-	}
-
 	@Override
 	@Transactional(readOnly = true)
 	public List<Client> findAll() {
