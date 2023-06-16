@@ -1,6 +1,7 @@
 package com.happydev.client.api.rest.models.services;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public class ClientServiceImplement implements IClientService {
 	@Override
 	@Transactional(readOnly = true)
 	public Client findById(Long id) {
-		return clienteDao.findById(id).orElse(null);
+		return clienteDao.findById(id).orElseThrow(() -> new NoSuchElementException("El Cliente no existe"));
 	}
 
 	@Override
